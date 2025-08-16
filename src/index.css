@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 9%;
+    --foreground: 210 40% 98%;
+    --card: 210 40% 9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 210 40% 9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 194 100% 50%;
+    --primary-foreground: 210 40% 2%;
+    --secondary: 210 40% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 12%;
+    --muted-foreground: 210 40% 60%;
+    --accent: 210 40% 15%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 40% 18%;
+    --input: 210 40% 18%;
+    --ring: 194 100% 50%;
+    --radius: 0.75rem;
+
+    /* Conic theme colors */
+    --conic-dark: 214 44% 9%;
+    --conic-aqua: 194 100% 50%;
+    --conic-blue: 220 100% 50%;
+    --conic-cyan: 174 100% 50%;
+    --conic-deep: 214 100% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: linear-gradient(135deg, hsl(var(--conic-dark)) 0%, hsl(var(--conic-deep)) 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/5 border border-white/10;
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--conic-aqua)), 0 0 40px hsl(var(--conic-aqua));
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-conic-aqua via-conic-blue to-conic-cyan bg-clip-text text-transparent;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow hover:border-conic-aqua/50;
+  }
+}
